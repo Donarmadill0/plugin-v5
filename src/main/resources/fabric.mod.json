@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "id": "godvoice",
+  "version": "${version}",
+  "name": "God Voice",
+  "description": "Client side of the GodVoice server plugin: a big dark dialogue box glued to the right of the screen.",
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {
+    "main": ["com.godvoice.client.GodVoiceMod"],
+    "client": ["com.godvoice.client.GodVoiceClient"]
+  },
+  "depends": {
+    "fabricloader": ">=0.18.1",
+    "minecraft": "~1.21.11",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}

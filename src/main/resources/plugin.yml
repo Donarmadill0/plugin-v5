@@ -1,0 +1,17 @@
+name: GodVoice
+version: '${version}'
+main: com.godvoice.GodVoicePlugin
+api-version: '1.21'
+description: Player-controlled gods with a particle aura, on-screen dialogue, vows and private voice lines.
+softdepend: [voicechat]
+commands:
+  god:
+    description: God commands
+    usage: /god
+  vow:
+    description: Swear or break a vow with a god
+    usage: /vow <swear|break|list>
+permissions:
+  godvoice.admin:
+    description: Make and remove gods
+    default: op

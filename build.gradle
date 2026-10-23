@@ -1,0 +1,40 @@
+plugins {
+    id 'fabric-loom' version '1.14-SNAPSHOT'
+}
+
+group = 'com.godvoice'
+version = '1.0.1'
+base { archivesName = 'godvoice' }
+
+repositories {
+    mavenCentral()
+    maven { url = 'https://repo.papermc.io/repository/maven-public/' }
+    maven { url = 'https://maven.maxhenkel.de/repository/public' }
+}
+
+dependencies {
+    // --- client HUD part (Fabric) ---
+    minecraft 'com.mojang:minecraft:1.21.11'
+    mappings 'net.fabricmc:yarn:1.21.11+build.4:v2'
+    modImplementation 'net.fabricmc:fabric-loader:0.18.4'
+    modImplementation 'net.fabricmc.fabric-api:fabric-api:0.141.3+1.21.11'
+
+    // --- server plugin part (Paper) ---
+    compileOnly 'io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT'
+    compileOnly 'de.maxhenkel.voicechat:voicechat-api:2.6.0' // optional at runtime (Simple Voice Chat)
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.release = 21
+}
+
+processResources {
+    inputs.property 'version', project.version
+    filesMatching(['plugin.yml', 'fabric.mod.json']) { expand 'version': project.version }
+}
+
+jar {
+    // tells Paper this plugin is already Mojang-mapped, so it must not try to remap the jar
+    manifest { attributes 'paperweight-mappings-namespace': 'mojang' }
+}

@@ -1,0 +1,13 @@
+# The god's form (an Enderman scaled up, with block-display antlers). 1.0 = normal enderman size.
+model:
+  scale: 2.6
+  hide-from-self: false   # true = you can't see your own model (first person), others still can
+
+# Dialogue for players WITHOUT the GodVoice client mod: shown on the right-side sidebar.
+# (Players WITH the client mod get the big dark HUD box instead.)
+sidebar:
+  wrap-px: 150
+
+# Followers of an online god get Resistance I.
+blessing:
+  enabled: true
